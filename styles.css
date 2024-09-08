@@ -10,12 +10,19 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f0f0;
+    background: linear-gradient(to top, 
+                #f1c27d 0%,  /* Arena */
+                #f1c27d 20%, 
+                #f08e54 30%,  /* Horizonte */
+                #ffcc70 40%,  /* Reflejo del atardecer */
+                #ff9966 55%,  /* Cielo cerca del horizonte */
+                #ff5e62 70%,  /* Parte superior del atardecer */
+                #ff416c 100%); /* Cielo más oscuro */
 }
 
 .container {
     text-align: center;
-    background-color: white;
+    background-color: rgb(201, 220, 224);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
