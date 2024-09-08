@@ -1,17 +1,24 @@
-document.getElementById('searchButton').addEventListener('click', function() {
-    const pokemonName = document.getElementById('pokemonInput').value.toLowerCase();
-    const apiUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
+const obtenerValor = () => {
+    let inputTexto = document.getElementById('pokemonInput');
+    let valor = inputTexto.value.toLowerCase(); // Convertir a minúsculas para evitar errores de búsqueda
+    peticionApi(valor);
+}
 
-    fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('pokemonName').textContent = data.name.toUpperCase();
-            document.getElementById('pokemonImage').src = data.sprites.front_default;
-            document.getElementById('pokemonInfo').textContent = `Peso(Libras): ${data.weight} | Altura(Pies): ${data.height}`;
-        })
-        .catch(error => {
-            document.getElementById('pokemonName').textContent = 'Pokémon no encontrado';
-            document.getElementById('pokemonImage').src = '';
-            document.getElementById('pokemonInfo').textContent = '';
-        });
-});
+const peticionApi = (pokemonName) => {
+    const baseUrl = 'https://pokeapi.co/api/v2/';
+    const endpoint = `pokemon/${pokemonName}`;
+    const url = `${baseUrl}${endpoint}`;
+
+    axios.get(url)
+    .then(res => printData(res.data))
+    .catch(err => console.log('Pokémon no encontrado o error en la solicitud:', err));
+}  
+
+const printData = (data) => {
+    document.getElementById('pokemonName').innerText = `Nombre: ${data.name}`;
+    document.getElementById('pokemonInfo').innerHTML = `
+        <p>Altura: ${data.height / 10} m</p>  
+        <p>Peso: ${data.weight / 10} kg</p>   
+    `;
+    document.querySelector('.pokemon-data img').src = data.sprites.front_default;
+}
