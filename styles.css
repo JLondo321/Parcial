@@ -11,13 +11,13 @@ body {
     align-items: center;
     height: 100vh;
     background: linear-gradient(to top, 
-                #f1c27d 0%,  /* Arena */
+                #f1c27d 0%,  
                 #f1c27d 20%, 
-                #f08e54 30%,  /* Horizonte */
-                #ffcc70 40%,  /* Reflejo del atardecer */
-                #ff9966 55%,  /* Cielo cerca del horizonte */
-                #ff5e62 70%,  /* Parte superior del atardecer */
-                #ff416c 100%); /* Cielo más oscuro */
+                #f08e54 30%,  
+                #ffcc70 40%, 
+                #ff9966 55%, 
+                #ff5e62 70%,  
+                #ff416c 100%); 
 }
 
 .container {
